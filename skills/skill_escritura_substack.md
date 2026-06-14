@@ -21,7 +21,8 @@ Al generar o corregir textos, debes aplicar OBLIGATORIAMENTE las siguientes regl
 
 ## 4. Estructura y Estética del Texto
 *   **Párrafos Estructurados:** Utiliza párrafos de longitud media que desarrollen una única idea principal de forma deductiva.
-*   **Conectores Lógicos:** Apóyate en conectores que guíen la lógica causal ("Por lo tanto", "Sin embargo", "Así pues", "La clave está en...").
-*   **Títulos y Subtítulos:** Deben ser descriptivos y neutros. Evita títulos sensacionalistas o *clickbait*.
+*   **Conectores Lógicos y Fluidez:** Apóyate en conectores que guíen la lógica causal ("Por lo tanto", "Sin embargo", "Así pues", "La clave está en...").
+*   **Uso Restringido de los Dos Puntos (:):** Se debe evitar en la medida de lo posible el uso de los dos puntos (:) como recurso retórico para dar rotundidad, avanzar ideas o enumerar conceptos simples. En su lugar, reformula la oración para que fluya de manera continua (ej. usa conjunciones como "es decir", "como ocurre con", "lo cual implica").
+*   **Títulos y Subtítulos:** Deben ser descriptivos y neutros. Evita títulos sensacionalistas o *clickbait*, y evita usar los dos puntos (:) para separar el título principal de explicaciones en los subtítulos salvo que sea estrictamente necesario en formato paper.
 
-*Nota: Ante la duda sobre una expresión, opta siempre por la variante más seca y descriptiva.*
+*Nota: Ante la duda sobre una expresión, opta siempre por la variante más seca, continua y descriptiva.*
