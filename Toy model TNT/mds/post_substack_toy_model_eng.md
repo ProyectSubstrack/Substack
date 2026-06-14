@@ -54,4 +54,4 @@ The aggregate well-being of a modern economy does not depend exclusively on its 
 
 ***
 
-*For transparency, all Python code and associated files used to generate this analysis are publicly available. You can review them and replicate the results in the [project's GitHub repository](https://github.com/ProyectSubstrack/Substack).*
+*For transparency, all Python code and associated files used to generate this analysis are publicly available. You can review them and replicate the results in the [project's GitHub repository](https://github.com/ProyectSubstrack/Substack/tree/main/Toy%20model%20TNT).*

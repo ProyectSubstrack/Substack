@@ -54,4 +54,4 @@ El bienestar agregado de una economía moderna no depende exclusivamente de su c
 
 ***
 
-*Para mayor transparencia, todo el código en Python y los ficheros asociados utilizados para generar este análisis están disponibles públicamente. Puedes consultarlos y replicar los resultados en el [repositorio de GitHub del proyecto](https://github.com/ProyectSubstrack/Substack).*
+*Para mayor transparencia, todo el código en Python y los ficheros asociados utilizados para generar este análisis están disponibles públicamente. Puedes consultarlos y replicar los resultados en el [repositorio de GitHub del proyecto](https://github.com/ProyectSubstrack/Substack/tree/main/Toy%20model%20TNT).*
