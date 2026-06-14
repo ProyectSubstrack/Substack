@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados Modelo DSGE</title>
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            color: #333;
+            background-color: #fcfcfc;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
+        }
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #ecf0f1;
+            color: #555;
+            border-radius: 0 4px 4px 0;
+        }
+        .MathJax {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+<h1>Modelo Neoclásico Dinámico de dos sectores y dos países con efecto Balassa-Samuelson</h1>
+<p>Este documento resume la estructura del modelo desarrollado y presenta un ejercicio teórico-cuantitativo (transición determinista de previsión perfecta) para evaluar la evolución de la brecha de bienestar entre ambas economías.</p>
+<hr />
+<h2>1. Fundamentos y Estructura del Modelo</h2>
+<p>El modelo consta de dos economías interdependientes, $D$ (Dinámico) y $S$ (Social). Ambas cuentan con 4 sectores institucionales que interactúan en un entorno dinámico e intertemporal con acumulación de capital y política fiscal:</p>
+<h3>1.1 Familias (Households)</h3>
+<p>Las familias maximizan su utilidad intertemporal:
+<script type="math/tex; mode=display">\max \sum_{t=0}^{\infty} \beta^t \left( \frac{C_t^{1-\sigma}}{1-\sigma} - \chi \frac{L_t^{1+\varphi}}{1+\varphi} \right)</script>
+</p>
+<p>Sujeto a la restricción presupuestaria:
+<script type="math/tex; mode=display">P_t^C C_t + P_t^I I_t + B_{t+1} + P_t^C T_t = W_t L_t + R_t K_t + (1+r_t) B_t</script>
+</p>
+<p>Y la ley de movimiento del capital:
+<script type="math/tex; mode=display">K_{t+1} = (1-\delta) K_t + I_t</script>
+</p>
+<p><strong>Condiciones de Primer Orden (FOCs):</strong>
+1. <strong>Oferta Laboral</strong>: $\chi L_t^\varphi = C_t^{-\sigma} \frac{W_t}{P_t^C}$
+2. <strong>Ecuación de Euler (Bonos)</strong>: $C_t^{-\sigma} = \beta \mathbb{E}<em>t \left[ C</em>{t+1}^{-\sigma} \frac{P_t^C}{P_{t+1}^C} (1+r_{t+1}) \right]$
+3. <strong>Ecuación de Euler (Capital)</strong>: $1 = \beta \mathbb{E}<em>t \left[ \left( \frac{C</em>{t+1}}{C_t} \right)^{-\sigma} \left( \frac{R_{t+1}}{P_{t+1}^C} + 1 - \delta \right) \right]$ (Asumiendo $P^I = P^C$ para simplificar).</p>
+<h3>1.2 Empresas (Firms)</h3>
+<p>Hay libre movilidad de capital y trabajo entre sectores dentro de un país.</p>
+<p><strong>Sector Tecnológico (Transable, T)</strong>
+<script type="math/tex; mode=display">Y_{T,t} = A_{T,t} K_{T,t}^\alpha L_{T,t}^{1-\alpha}</script>
+FOCs (Precio igual a costo marginal):
+*   $R_t = P_{T,t} \alpha \frac{Y_{T,t}}{K_{T,t}}$
+*   $W_t = P_{T,t} (1-\alpha) \frac{Y_{T,t}}{L_{T,t}}$</p>
+<p><strong>Sector Social (No Transable, N)</strong>
+<script type="math/tex; mode=display">Y_{N,t} = A_{N,t} K_{N,t}^\eta L_{N,t}^{1-\eta}</script>
+FOCs:
+*   $R_t = P_{N,t} \eta \frac{Y_{N,t}}{K_{N,t}}$
+*   $W_t = P_{N,t} (1-\eta) \frac{Y_{N,t}}{L_{N,t}}$</p>
+<h3>1.3 Gobierno y Política Fiscal</h3>
+<p>El gobierno recauda impuestos de suma fija $T_t$, consume bienes $G_t$ y emite deuda $D_t$.
+<script type="math/tex; mode=display">P_t^C G_t + (1+r_t) D_t = P_t^C T_t + D_{t+1}</script>
+</p>
+<h3>1.4 Comercio, Agregadores y Tipo de Cambio Real</h3>
+<p>En este modelo existen cuatro bienes producidos en total (el bien transable y el no transable de cada país). Sin embargo, los consumidores de cada país demandan un agregado de <strong>tres bienes</strong> específicos: su bien no transable local y un compuesto de los dos bienes transables (el doméstico y el importado).</p>
+<p>La demanda final total $Q_{i,t} = C_{i,t} + I_{i,t} + G_{i,t}$ del país $i$ es un agregado CES de la cesta de bienes transables ($T$) y el bien no transable local ($N$):
+<script type="math/tex; mode=display">Q_{i,t} = \left[ \gamma^{\frac{1}{\phi}} (Q_{T,i,t})^{\frac{\phi-1}{\phi}} + (1-\gamma)^{\frac{1}{\phi}} (Q_{N,i,t})^{\frac{\phi-1}{\phi}} \right]^{\frac{\phi}{\phi-1}}</script>
+</p>
+<p>A su vez, la cesta de bienes transables se forma mediante un <strong>agregador Armington</strong> que combina el bien transable doméstico (producido en $i$) y el bien transable importado (producido en $j$):
+<script type="math/tex; mode=display">Q_{T,i,t} = \left[ \omega^{\frac{1}{\theta}} (Q_{T,ii,t})^{\frac{\theta-1}{\theta}} + (1-\omega)^{\frac{1}{\theta}} (Q_{T,ji,t})^{\frac{\theta-1}{\theta}} \right]^{\frac{\theta}{\theta-1}}</script>
+</p>
+<p>Esto da lugar a un índice de precios para el agregado transable $P_{T,i,t}^{agg}$ en cada país:
+<script type="math/tex; mode=display">P_{T,i,t}^{agg} = \left[ \omega (P_{T,i,t})^{1-\theta} + (1-\omega) (P_{T,j,t})^{1-\theta} \right]^{\frac{1}{1-\theta}}</script>
+</p>
+<p>Y finalmente, el Índice de Precios al Consumidor (IPC) general para el país $i$:
+<script type="math/tex; mode=display">P_{i,t}^C = \left[ \gamma (P_{T,i,t}^{agg})^{1-\phi} + (1-\gamma) P_{N,i,t}^{1-\phi} \right]^{\frac{1}{1-\phi}}</script>
+</p>
+<p>El <strong>Tipo de Cambio Real (TCR)</strong> se define como la ratio de los índices de precios al consumidor entre ambos países:
+<script type="math/tex; mode=display">TCR = \frac{P_S^C}{P_D^C}</script>
+</p>
+<h3>Mecanismo Clave: Efecto Balassa-Samuelson</h3>
+<p>El núcleo del modelo asume que el país Dinámico ($D$) experimenta un alto crecimiento en su productividad tecnológica ($A_{T,D}$), mientras que el país Social ($S$) mantiene una enorme ventaja en la eficiencia de su sector de servicios sociales ($A_{N,S} \gg A_{N,D}$).</p>
+<hr />
+<h2>2. Ejercicio de Evaluación Cuantitativa</h2>
+<p>El objetivo de este ejercicio es evaluar de forma integral cómo evoluciona la economía a lo largo del tiempo bajo distintos ritmos de innovación. Simulamos una transición de 50 periodos (ej. años) donde la tecnología de ambos países crece, pero a ritmos asimétricos: la productividad transable del país Dinámico ($A_{T,D}$) crece al 2% por periodo, mientras que la del país Social ($A_{T,S}$) crece al 1%. Al mismo tiempo, mantenemos fijas las productividades del sector social de cada país.</p>
+<p><img alt="Análisis Completo de Resultados" src="./analisis_completo.png" /></p>
+<h3>2.1. Evolución de Productividades en el Tiempo</h3>
+<p>Para lograr un escenario más realista y observar el efecto Balassa-Samuelson en estado puro, hemos modificado la calibración asumiendo que los servicios locales en D son el doble de ineficientes que en S ($A_{N,D}=1.0, A_{N,S}=2.0$). Además, hemos asignado un peso muy fuerte a los servicios no transables en la cesta de consumo (70%), lo cual es la norma en las economías modernas. </p>
+<p><strong>Importante (Lo Asumido vs. Lo Derivado):</strong> El ranking absoluto de bienestar y consumo (S por encima de D en niveles) no lo genera el efecto Balassa-Samuelson per se, sino que queda fijado en $t=0$ por la calibración de eficiencias. En $t=0$, con igual tecnología ($A_{T,D}=A_{T,S}=1$), el país S ya consume un ~64% más en términos reales ($C_S/C_D \approx 1.64$, o equivalentemente D está un 39% por debajo de S). El resultado Balassa-Samuelson genuino del modelo es <strong>dinámico</strong>: pese a que la tecnología de D casi se triplica en 50 periodos, el boom tecnológico no logra cerrar esta brecha, pasando D de estar un ~39% por debajo a un ~27% por debajo.</p>
+<h3>2.2. Evolución de Salarios Nominales y Reales</h3>
+<p>A medida que $D$ experimenta el boom tecnológico, la rentabilidad marginal del trabajo en el sector $T$ se dispara, lo que arrastra los salarios nominales ($W_D$) fuertemente al alza. Por el contrario, el salario nominal en el país $S$ ($W_S$) parece caer. Sin embargo, esto es un artefacto de usar el IPC de D como numerario ($P_D^C = 1$). Si observamos la línea punteada naranja (Salario Real de S, $W_S / P_S^C$), el poder adquisitivo de los salarios en S de hecho se mantiene estable o sube, inducido por la mayor demanda de exportaciones y el abaratamiento de los transables. Nominalmente, D se vuelve un país extremadamente "caro", pero no necesariamente más rico en poder de compra local. </p>
+<h3>2.3. Brecha de Consumo Real y Términos de Intercambio</h3>
+<p>Si mirásemos solo los salarios nominales, esperaríamos que el consumo real de $D$ aplastase al de $S$. Sin embargo, la <strong>brecha de consumo real es mucho más estrecha que la nominal</strong>. Además, observamos que el consumo de S cae muy levemente a lo largo del tiempo. Esto es un efecto de <strong>términos de intercambio</strong>: al abaratarse masivamente el bien transable de D, la exportación relativa de S pierde valor en el mercado internacional, perjudicando su nivel de consumo general.</p>
+<p>¿Por qué D no logra adelantar a S en consumo real? (Efecto Balassa-Samuelson): Los altos salarios en $D$ encarecen brutalmente el precio de sus bienes no transables, erosionando el poder adquisitivo real de sus familias. <em>Caveat</em>: Hay que notar que los menores precios $P_{N,S}$ reflejan en parte menores salarios en el sector servicios de S, y el modelo no ajusta por la calidad de estos servicios; por tanto "más barato" no equivale mecánicamente a "más eficiente", aunque operativamente deflacte el consumo.</p>
+<h3>2.4. Evolución del Bienestar (CEV) y Horas Trabajadas</h3>
+<p>Para evaluar de forma estricta quién está mejor, utilizamos la <strong>Variación Equivalente en Consumo (CEV)</strong>: el % de consumo extra por periodo que necesitaría D para igualar el bienestar intertemporal exacto de S. Esta métrica es superior al simple consumo real porque penaliza el esfuerzo laboral (las horas trabajadas).</p>
+<p>El cuadrante inferior derecho muestra dos fenómenos reveladores. Por un lado, las familias en D trabajan sustancialmente más horas ($L_D &gt; L_S$) a lo largo de toda la transición. Por otro, la <strong>CEV se mantiene altamente positiva</strong>: en $t=0$, D necesitaría un 75% más de consumo para alcanzar la felicidad de S. En $t=50$, tras medio siglo de explosión tecnológica, la CEV cae al 47%. D recorta terreno, pero el incesante trabajo y la inflación de servicios impiden que el boom tecnológico cierre por completo la brecha de bienestar subyacente. </p>
+<h3>2.5. Evolución de los Precios y Tipo de Cambio Real</h3>
+<p>Para entender a fondo la dinámica del poder adquisitivo, resulta crucial observar qué sucede con los precios a nivel desagregado y cómo componen el Índice de Precios al Consumidor ($P^C$). Recordemos que en el modelo, el deflactor de consumo para el país $D$ se utiliza como numeraire ($P_D^C = 1$).</p>
+<p><img alt="Evolución de los Precios" src="./evolucion_precios.png" /></p>
+<p>Como se aprecia en la nueva figura:
+1. <strong>Panel Izquierdo (Bienes No Transables):</strong> El precio del bien no transable en el país Dinámico ($P_{N,D}$) crece vertiginosamente a lo largo del tiempo. Esto se debe a los altos salarios nominales que debe pagar para competir con el sector tecnológico (efecto Balassa-Samuelson), combinados con su menor eficiencia en este sector. En el país Social, el precio de los servicios locales ($P_{N,S}$) crece muy lentamente.
+2. <strong>Panel Central (Cesta Transable - Agregado Armington):</strong> Los índices de precios del agregado transable para ambos países ($P_{T,D}^{agg}$ y $P_{T,S}^{agg}$) caen fuertemente. Esto ocurre porque el incesante progreso tecnológico (especialmente en $D$) abarata sistemáticamente el costo de producción de la cesta transable para el mundo entero. 
+3. <strong>Panel Derecho (Índice de Precios al Consumidor, IPC):</strong> El deflactor general muestra cómo se compensan estas fuerzas. En $D$, el abaratamiento de la cesta transable se contrarresta exactamente con el encarecimiento extremo de los servicios locales para mantener $P_D^C = 1$. En contraste, en el país $S$, como los servicios locales casi no se encarecen y los bienes transables importados se vuelven más baratos, su coste de vida general ($P_S^C$) experimenta una fuerte caída estructural. </p>
+<p>Dado que el Tipo de Cambio Real ($TCR$) equivale a $P_S^C / P_D^C$, y $P_D^C = 1$, la curva morada ($P_S^C$) representa simultáneamente el TCR. Esta fuerte caída significa que <strong>el país Dinámico se encarece en términos relativos (apreciación real)</strong>. El país $D$ se vuelve extremadamente "caro", explicando por qué sus altos salarios no logran cerrar la brecha de bienestar real.</p>
+<h3>2.6. Análisis de Sensibilidad (Mecanismo vs Supuesto)</h3>
+<p>Para hacer transparente qué parte del bienestar viene determinada por supuestos estructurales frente a mecanismos de precios, hemos generado un mapa de calor (Heatmap) que evalúa la CEV en $t=50$ variando el peso de los servicios ($1-\gamma$) y la ventaja de eficiencia social ($A_{N,S}/A_{N,D}$).</p>
+<p><img alt="Heatmap de Sensibilidad" src="./heatmap.png" /></p>
+<p>Como muestra el mapa, si el peso de los servicios cae o si las eficiencias se igualan ($A_{N,S}/A_{N,D} \to 1$), la CEV se vuelve negativa (D supera a S en bienestar, zona verde). La tesis "Krugman/Social" requiere indefectiblemente que los servicios no transables pesen enormemente en la vida moderna y que el país S sea genuinamente más eficiente (zona roja/amarilla).</p>
+<h3>Conclusión Principal</h3>
+<p>Incluso con una brecha de eficiencia en servicios mucho más realista y moderada, el país dinámico sufre una "penalización de ineficiencia relativa" que erosiona buena parte de los frutos de su avance tecnológico. El país social, a través del comercio internacional y la eficiencia en la provisión de servicios locales esenciales, no solo amortigua el shock de quedarse atrás tecnológicamente, sino que logra sostener un nivel de bienestar estrictamente superior al de su vecino super-tecnológico.</p>
+<hr />
+<h2>3. Síntesis y Gráfico de Cierre (Crecimiento Relativo)</h2>
+<p>Para condensar toda la narrativa macroeconómica, el siguiente gráfico muestra la evolución en <strong>tasas de crecimiento</strong> de las principales variables, <strong>normalizadas a 1 en el periodo inicial</strong>. Esto no mide "quién es más rico" (nivel absoluto), sino "quién crece más rápido" a partir de $t=0$.</p>
+<p><img alt="Gráfico de Cierre" src="./grafico_cierre.png" /></p>
+<ul>
+<li><strong>Panel 1 (Productividad Tecnológica Exógena):</strong> Muestra el verdadero "motor" del modelo ($A_{T,D}$ vs $A_{T,S}$). Se observa cómo la tecnología en el país D se dispara espectacularmente a lo largo de las décadas frente a S. ¡Una brecha gigantesca se abre!</li>
+<li><strong>Panel 2 (Salarios Nominales):</strong> Es el canal de transmisión primario. Los salarios en $D$ explotan nominalmente para retener a los trabajadores en el sector tecnológico, mientras que en $S$ crecen a un ritmo mucho más modesto.</li>
+<li><strong>Panel 3 (Consumo Nominal):</strong> Las familias de $D$, con sus abultados salarios, gastan nominalmente muchísimo más que las de $S$. Si solo mirásemos el dinero gastado, $D$ parecería aplastar a $S$.</li>
+<li><strong>Panel 4 (Consumo Real):</strong> El golpe de realidad y la demostración pura del <strong>Efecto Balassa-Samuelson</strong>. A pesar de que la productividad tecnológica (Panel 1) y el gasto en dinero (Panel 3) abrieron brechas colosales a favor de D, al deflactar por los altísimos precios de sus ineficientes servicios locales, el crecimiento del consumo real de D se desploma. La brecha de consumo real crece menos de la mitad de lo que creció la brecha tecnológica. Toda esa supuesta "ventaja productiva" se evaporó en inflación interna.</li>
+</ul>
+<hr />
+<h2>4. Brechas Relativas (Ratios D/S)</h2>
+<p>Para visualizar aún más claro el "espejismo" de las tasas de crecimiento, podemos graficar el ratio directo entre las tasas de avance del país D y el país S, <strong>normalizando todas las líneas a 1.0 en el periodo inicial</strong>. Esto nos permite comparar visualmente el "terreno relativo recortado" independientemente del punto de partida.</p>
+<p><img alt="Gráfico de Ratios" src="./ratios.png" /></p>
+<ol>
+<li><strong>Productividad Tecnológica ($A_T$):</strong> La línea azul puntuada se dispara sin freno, llegando a ser casi un 65% superior en D.</li>
+<li><strong>Salarios y Consumo Nominal:</strong> La línea morada y roja (que viajan pegadas) suben aún más fuerte que la tecnología. Esto es lo que vemos si medimos la economía usando el tipo de cambio de mercado internacional: Estados Unidos aplastando económicamente a Europa.</li>
+<li><strong>Consumo Real (Paridad de Poder Adquisitivo):</strong> La línea verde gruesa revela la verdadera brecha en el bienestar de los ciudadanos dentro de sus fronteras. Gracias a los servicios eficientes de Europa y los encarecidos en EE. UU., la línea verde se mantiene casi plana (apenas crece un 19% a favor de D en medio siglo). <strong>La colosal ventaja tecnológica no se transforma en una mejora de vida equivalente</strong>.</li>
+</ol>
+<hr />
+<h2>5. Corolario Final: ¿Quién tiene razón, Krugman o Garicano?</h2>
+<p>A la luz de este modelo DSGE calibrado con el Efecto Balassa-Samuelson, podemos concluir de forma salomónica que en el intenso debate económico actual, <strong>tanto Luis Garicano (y los defensores de la tesis del declive) como Paul Krugman (y los escépticos del colapso europeo) tienen razón</strong>, pero están mirando variables diferentes.</p>
+<ul>
+<li>
+<p><strong>Garicano tiene razón (Paneles 1, 2 y 3 / Líneas Azul y Roja):</strong> El declive tecnológico europeo es un hecho incontestable. Si medimos el tamaño de la economía en dólares corrientes a tipos de cambio de mercado, la brecha de competitividad y la fuga de talento (atraída por la explosión salarial en el sector transable estadounidense) son reales. Si Europa quiere liderar la inteligencia artificial o dominar industrias de frontera, está perdiendo la carrera estrepitosamente. </p>
+</li>
+<li>
+<p><strong>Krugman tiene razón (Panel 4 / Línea Verde):</strong> El "Mito del Declive" tiende a exagerarse cuando omitimos el bienestar y el nivel de vida real de los ciudadanos. La aparente inferioridad europea es mucho más estrecha cuando deflactamos el consumo usando la Paridad de Poder Adquisitivo (PPA) y penalizamos la fatiga laboral (CEV). Gracias a un sector de servicios sociales eficiente, el ciudadano europeo mantiene un estándar de bienestar tremendamente competitivo, mientras que el espectacular salario del país dinámico se evapora al intentar pagar servicios locales ineficientes y carísimos.</p>
+</li>
+</ul>
+<p>En resumen: <strong>Europa ha perdido claramente la carrera de la producción tecnológica global en términos de crecimiento nominal, pero mantiene una brecha de bienestar muchísimo más estrecha gracias a su estructura de precios y protección social</strong>. Ambos enfoques son matemáticamente compatibles dentro de un mismo modelo económico neoclásico cerrado de forma limpia y honesta.</p>
+</body>
+</html>

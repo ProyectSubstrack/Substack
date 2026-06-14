@@ -1,0 +1,13 @@
+# Ignorar todos los directorios que se llamen docx en cualquier parte del proyecto
+**/docx/
+
+# Ignorar las carpetas de trabajo temporal (según tus reglas globales)
+**/scratch/
+
+# Ignorar archivos ocultos del sistema
+.DS_Store
+Thumbs.db
+
+# Python (por si acaso usas entornos virtuales o cachés)
+__pycache__/
+*.pyc
